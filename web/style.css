@@ -1,0 +1,321 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff7fbf; /* Màu hồng chủ đạo */
+  background: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Video background */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#bgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6) contrast(1.2);
+}
+
+/* Click to Enter Section */
+.click-to-enter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.click-to-enter.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.click-to-enter p {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff7fbf;
+  text-shadow:
+    0 0 5px #ff7fbf,
+    0 0 10px #ff7fbf,
+    0 0 20px #ff7fbf,
+    0 0 40px #ff7fbf;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    text-shadow: 0 0 5px #ff7fbf;
+  }
+  to {
+    text-shadow: 0 0 15px #ff7fbf, 0 0 30px #ff7fbf;
+  }
+}
+
+/* Main content */
+.container {
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Glitch text */
+.glitch-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff7fbf;
+  text-shadow:
+    0 0 5px #ff7fbf,
+    0 0 10px #ff7fbf,
+    0 0 20px #ff7fbf;
+  animation: glitch-text 2s infinite alternate;
+}
+
+@keyframes glitch-text {
+  0% { transform: translate(0, 0); text-shadow: 0 0 5px #ff7fbf; }
+  20% { transform: translate(-2px, 2px); text-shadow: -2px 2px 5px #ff7fbf; }
+  40% { transform: translate(2px, -2px); text-shadow: 2px -2px 5px #ff7fbf; }
+  60% { transform: translate(-1px, 1px); text-shadow: -1px 1px 5px #ff7fbf; }
+  80% { transform: translate(1px, -1px); text-shadow: 1px -1px 5px #ff7fbf; }
+  100% { transform: translate(0, 0); text-shadow: 0 0 5px #ff7fbf; }
+}
+
+/* Avatar container */
+.avatar-container {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0;
+  animation: pulse 2s infinite alternate;
+}
+
+.avatar-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #ff7fbf;
+  box-shadow:
+    0 0 15px #ff7fbf,
+    0 0 30px #ff7fbf;
+  transition: transform 0.3s ease;
+}
+
+.avatar-image:hover {
+  transform: scale(1.1);
+}
+
+/* Heart animation */
+.heart-animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  font-size: 16px;
+  color: #ff7fbf;
+  text-shadow: 0 0 6px #ff7fbf, 0 0 10px #ffcce5;
+  animation: floatUp 3s linear forwards;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Social links */
+.social-links {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Social links - Giữ màu xanh cyan cho icon */
+.icon-svg {
+  width: 48px;
+  height: 48px;
+  color: #00ffff; /* Giữ màu xanh cyan */
+  filter: drop-shadow(0 0 3px rgba(0, 255, 255, 0.7)) 
+          drop-shadow(0 0 6px rgba(0, 255, 255, 0.5));
+}
+
+.glow-icon {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.glow-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.7)) 
+          drop-shadow(0 0 16px rgba(0, 255, 255, 0.5));
+}
+/* View counter */
+.view-counter {
+  margin-top: 25px;
+  font-size: 1.2rem;
+  color: #ff7fbf;
+  text-shadow: 0 0 5px #ff7fbf;
+}
+
+/* Floating hearts background */
+.floating-hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== USER PROFILE SECTION ========== */
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  padding: 12px 20px;
+  width: 280px; /* Giữ nguyên kích thước cũ */
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50px;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  flex-shrink: 0;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Chiếm toàn bộ phần còn lại */
+  gap: 5px;
+}
+
+.user-name {
+  color: #00ffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #00ffff;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-status {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00ff00;
+  box-shadow: 0 0 5px #00ff00;
+  animation: status-pulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.status-text {
+  color: #00ffff;
+  text-shadow: 0 0 3px #00ffff;
+}
+
+.last-seen {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Offline state */
+.status-offline .status-dot {
+  background-color: #ff0000;
+  box-shadow: 0 0 5px #ff0000;
+  animation: none;
+}
+
+.status-offline .status-text {
+  color: #ff3366;
+  text-shadow: 0 0 3px #ff3366;
+}

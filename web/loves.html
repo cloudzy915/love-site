@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>💕</title>
+    <link rel="stylesheet" href="/loves.css">
+    <link rel="icon" href="img/timmm.png.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/timmm.png.png" type="image/x-icon">
+</head>
+<body>
+    
+    <audio id="bg-music" loop>
+        <source src="/audio/sad.mp3" type="audio/mpeg">
+          </audio>
+
+    <script src="/loves.js"></script>
+
+
+    
+    <script>
+        const music = document.getElementById('bg-music');
+        
+        // Cứ 1 giây thử phát nhạc 1 lần nếu chưa phát
+        const tryPlay = setInterval(() => {
+            music.play()
+                .then(() => clearInterval(tryPlay))
+                .catch(e => console.log("Đang chờ phát nhạc..."));
+        }, 1000);
+
+        // Tạm dừng khi tab ẩn
+        document.addEventListener('visibilitychange', () => {
+            document.hidden ? music.pause() : music.play();
+        });
+    </script>
+</body>
+</html>
